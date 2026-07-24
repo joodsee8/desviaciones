@@ -167,6 +167,19 @@
         <form id="formRegistroGerente" class="mb-4 panel border-flat">
             <div class="input-row"><label id="lbl_ger_monto">Faltante ($)</label><input type="number" id="ger_reg_monto" step="0.01" placeholder="0.00" required></div>
             <div class="input-row" id="row_ger_zeta"><label>No. Zeta</label><input type="text" id="ger_reg_zeta" placeholder="Ej. Z-1024" required></div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+  <label for="fecha_corte" style="color: #f4f4f5; display: flex; align-items: center; gap: 8px;">
+    <i class="ph ph-calendar-blank" style="color: #2563eb; font-size: 1.2rem;"></i> 
+    Fecha del Corte
+  </label>
+  <input 
+    type="date" 
+    id="fecha_corte" 
+    name="fecha_corte" 
+    required
+    style="width: 100%; padding: 10px; border-radius: 8px; background-color: #18181b; color: #f4f4f5; border: 1px solid #27272a; outline: none;"
+  >
+</div>
             <div class="input-row-double" id="row_ger_transfer">
                 <div class="input-half"><label class="text-success">Extra ($)</label><input type="number" id="ger_reg_extra" step="0.01" placeholder="0.00"></div>
                 <div class="input-divider">|</div>
