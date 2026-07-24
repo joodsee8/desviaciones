@@ -577,6 +577,21 @@ document.getElementById('formNuevoUsuario').addEventListener('submit', async fun
         alert("Usuario creado. Deberá cambiar su clave al entrar.");
     }
 });
+// Función para poner la fecha de hoy en el input
+function setFechaPorDefecto() {
+  const inputFecha = document.getElementById('fecha_corte');
+  const hoy = new Date();
+  
+  // Formatear a YYYY-MM-DD que es lo que pide el input type="date"
+  const año = hoy.getFullYear();
+  const mes = String(hoy.getMonth() + 1).padStart(2, '0');
+  const dia = String(hoy.getDate()).padStart(2, '0');
+  
+  inputFecha.value = `${año}-${mes}-${dia}`;
+}
+
+// Ejecutarla cuando cargue el form
+setFechaPorDefecto();
 
 async function togglePermisoDev(id, val) { await clienteSupabase.from('usuarios_app').update({ ver_sobrante: val }).eq('id', id); await cargarUsuariosGlobales(); renderPanelDev(); }
 async function borrarUsuarioDev(id, nombre) { if(confirm("¿Borrar a " + nombre + "?")) { await clienteSupabase.from('usuarios_app').delete().eq('id', id); await cargarUsuariosGlobales(); renderPanelDev(); } }
