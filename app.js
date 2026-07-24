@@ -457,6 +457,15 @@ document.getElementById('formRegistroGerente').addEventListener('submit', async 
         if(receptorExtra === "") { alert("Selecciona a quién le deja el efectivo."); return; }
         enviosDB.push({ tipo: 'extra', nombre_empleado: empleadoSeleccionado, monto: montoExtra, nombre_receptor: receptorExtra, no_zeta: zeta, estado: 'REAL' });
     }
+    const fechaCorteValue = document.getElementById('fecha_corte').value;
+
+const { data, error } = await supabase
+  .from('movimientos')
+  .insert([
+    { 
+      // ... tus otros datos (monto, tipo, usuario_id, etc)
+      fecha_corte: fechaCorteValue 
+    }
 
     const { error } = await clienteSupabase.from('movimientos').insert(enviosDB);
     if (error) alert(error.message); else { 
