@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Desviaciones Villa Luna</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Utilidad exclusiva para centrar el login en la pantalla */
+        .login-container {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .login-box {
+            width: 100%;
+            max-width: 340px;
+            text-align: center;
+        }
+        .login-logo {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="panel login-box">
+            <div class="login-logo">
+                <i class="ph-fill ph-vault"></i>
+            </div>
+            <h2 style="margin: 0 0 8px 0; font-size: 22px; font-weight: 700; letter-spacing: -0.5px;">Control de Caja</h2>
+            <div class="section-title" style="margin-bottom: 24px;">Acceso al Sistema</div>
+            
+            <form id="formLogin">
+                <div class="form-group border-flat mb-4 text-left">
+                    <label style="font-size: 13px; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; display: block;">Usuario</label>
+                    <div style="position: relative; margin-bottom: 15px;">
+                        <i class="ph ph-user" style="position: absolute; left: 12px; top: 14px; font-size: 18px; color: var(--text-muted);"></i>
+                        <input type="text" id="usuario" class="input-flat" placeholder="Ej. JOSE" required autocomplete="off" style="padding-left: 40px; text-transform: uppercase;">
+                    </div>
+                    
+                    <label style="font-size: 13px; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; display: block;">Contraseña</label>
+                    <div style="position: relative;">
+                        <i class="ph ph-lock-key" style="position: absolute; left: 12px; top: 14px; font-size: 18px; color: var(--text-muted);"></i>
+                        <input type="password" id="password" class="input-flat" placeholder="••••••••" required style="padding-left: 40px;">
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">
+                    Iniciar Sesión <i class="ph ph-arrow-right"></i>
+                </button>
+            </form>
+
+            <!-- FORMULARIO DE CAMBIO FORZADO (OCULTO) -->
+            <form id="formForzado" style="display:none;">
+                <div class="alert-box mb-3" style="background: rgba(217, 119, 6, 0.1); border-color: rgba(217, 119, 6, 0.3); color: var(--warning); padding: 10px; border-radius: 8px; font-size: 13px;">
+                    <i class="ph-fill ph-warning-octagon"></i> Por seguridad, debes crear tu propia contraseña para continuar.
+                </div>
+                <div class="form-group border-flat mb-4 text-left">
+                    <label style="font-size: 13px; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; display: block;">Nueva Contraseña</label>
+                    <div style="position: relative;">
+                        <i class="ph ph-key" style="position: absolute; left: 12px; top: 14px; font-size: 18px; color: var(--text-muted);"></i>
+                        <input type="password" id="pwd_forzada" class="input-flat" placeholder="Escribe tu nueva clave" required style="padding-left: 40px;">
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit btn-success">Guardar y Entrar <i class="ph ph-check-circle"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
